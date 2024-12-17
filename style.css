@@ -267,6 +267,21 @@ main {
     /* Add mobile-specific styles */
 }
 
+/* Initially hide the read-more text */
+.read-more-text {
+    display: none;
+}
+
+/* Style for the button */
+.read-more-btn {
+    color: var(--themeColor);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 400;
+    font-style: italic;
+    text-decoration: underline;
+}
+
 
 /* About Section START */
 #about {
@@ -300,17 +315,17 @@ main {
     flex-basis: 35%;
     text-align: center;
 }
-.about-col .img-col img {
-    width: 100%;
-    height: 320px;
-    width: 250px;
+.img-col img {
+    width: 100%; /* Image takes up full width of its container */
+    max-width: 200px; /* Limits the maximum width */
+    height: auto; /* Maintains the aspect ratio */
 }
-.btn-diary {
+.about-btn {
     display: inline-block;
     background-color: var(--themeColor);
     color: var(--bgColor);
     text-decoration: none;
-    padding: 5px 10px;
+    padding: 5px 40px;
     margin: 5px;
     margin-bottom: 20px;
     border-radius: 5px;
@@ -319,14 +334,20 @@ main {
     cursor: pointer;
     transition: 0.4s;
 }
-.btn-diary:hover {
+.about-btn:hover {
     background-color: var(--sideBGColor);
     color: var(--bgColor);
     justify-content: center;
     justify-items: center;
 } 
-.btn-diary i {
+.about-btn i {
     font-size: 20px;
+    color: var(--iconBGColor);
+}
+
+.cv .about-btn {
+    margin: 0;
+    padding: 5px 20px;
 }
 
 .about-col .info-col {
@@ -337,7 +358,7 @@ main {
     color: var(--themeColor);
     font-weight: 600;
     font-size: 32px;
-    margin-top: -10px;
+    margin-top: 10px;
 }
 
 .line {
@@ -355,7 +376,7 @@ main {
 .about-col .info-col .icon-list-col {
     display: flex;
     margin-top: 20px;
-    gap: 10px;
+    gap: 80px;
 }
 .about-col .info-col .icon-list-col .icon-list ul li {
     list-style: none;
@@ -400,7 +421,7 @@ main {
     }
     .about-col .info-col .icon-list-col {
         flex-direction: column;
-        gap: 0px;
+        gap: 0;
     }
     .about-col .info-col .icon-list-col .icon-list ul li {
         margin: 10px 0;
@@ -531,8 +552,8 @@ main {
 .resume-list .resume-item {
     background: var(--iconBGColor);
     border-radius: .5rem;
-    padding: 3rem 2.5rem;
-    height: calc((32rem - 2rem) / 2);
+    padding: .1rem 1rem;
+    height: calc((24rem - 2rem) / 2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -577,8 +598,11 @@ main {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
     gap: .5rem;
-    height: 20rem;
     overflow: auto;
+}
+
+.resume-detail.education .resume-list .resume-item {
+    height: calc((30rem - 2rem) / 2);
 }
 
 .resume-detail.education .resume-list::-webkit-scrollbar {
@@ -624,8 +648,8 @@ main {
     position: absolute;
     top: -20%;
     background: var(--themeColor);
-    color: var(--sideBGColor);
-    font-size: 1rem;
+    color: var(--bgColor);
+    font-size: 14px;
     padding: .5rem 1rem;
     border-radius: .2rem;
     pointer-events: none;
@@ -640,29 +664,49 @@ main {
     transform: scale(1);
 }
 
+.resume-detail.certificates .resume-list {
+    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    overflow: auto;
+}
+
+.resume-detail.certificates img {
+    height: 70%;
+    width: 100%;
+}
+
 /* Mobile View */
 @media only screen and (max-width: 670px) {
     #resume {
         padding: 30px 10px;
     }
     #resume .resume-container {
-        display: grid;
-        grid-template-columns: 2fr 2fr;
-        gap: 5rem;
+        display: flex;
+    }
+    .resume-box .resume-btn {
+        width: 80%;
+        height: 2rem;
+    }
+    .resume-detail.education .resume-list {
+        grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    }    
+    .resume-detail.education .resume-list {
+        grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
     }
     .resume-detail.skills .resume-list {
-        grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
-        gap: .1rem;
-        height: 20rem;
-        overflow: auto;
+        grid-template-columns: repeat(auto-fit, minmax(6rem, 1fr));
+    }
+    .resume-detail.skills .resume-item span {
+        font-size: 12px;
+        padding: 0;
+    }
+    .resume-detail.skills .resume-item i {
+        font-size: 2rem;
     }
 }
 
 @media only screen and (max-width: 670px) {
     #resume .resume-container {
-        display: grid;
         grid-template-columns: 2fr 2fr;
-        gap: 5rem;
     }
 }
 
@@ -796,6 +840,10 @@ main {
     font-size: 14px;
 }
 
+.read-more-text--show {
+    display: inline;
+}
+
 .portfolio-box .tech {
     margin: 2.2rem 0;
     color: var(--themeColor);
@@ -893,7 +941,7 @@ main {
 
 .portfolio-box .navigation button {
     display: inline-flex;
-    padding: .2rem;
+    padding: .1rem;
     background: var(--iconBGColor);
     border: .15rem solid var(--themeColor);
     border-radius: .4rem;
@@ -925,6 +973,9 @@ main {
 /* For mobile screens */
 @media only screen and (max-width: 767px) {
     /* Add mobile-specific styles */
+    #portfolio {
+        padding: 30px 15px;
+    }
     .portfolio-container {
         display: grid;
         grid-template-columns: repeat(1, 1fr);
@@ -938,10 +989,11 @@ main {
         margin: 1rem 0;
     }
     .portfolio-box .navigation {
-        margin-top: -12rem;
+        text-align: right;
+        margin-top: -10rem;
+        margin-right: 2.5rem;
     }
 }
-
 /* Portfolio Setion END */
 
 /* Service Setion START */
@@ -1126,6 +1178,7 @@ main {
         gap: 10px;
     }
 }
+
 @media only screen and (max-width: 500px) {
     #contact {
         padding: 50px 10px;
@@ -1155,4 +1208,36 @@ main {
 
 /* Contact Section END */
 
-/* ======================================================================================================
+/* ====================================================================================================== */
+
+/* Back-to-Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px; /* Distance from the bottom of the viewport */
+    right: 20px; /* Distance from the right of the viewport */
+    background-color: var(--iconBGColor); /* Button background color */
+    color: var(--bgColor); /* Icon color */
+    font-size: 25px; /* Icon size */
+    width: 30px; /* Button width */
+    height: 35px; /* Button height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10%; /* Circular button */
+    box-shadow: 0 5px 10px var(--iconBGColor); /* Subtle shadow */
+    cursor: pointer; /* Pointer cursor on hover */
+    text-decoration: none; /* Remove underline */
+    opacity: 0; /* Hidden initially */
+    visibility: hidden; /* Hidden initially */
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s; /* Smooth transitions */
+}
+
+.back-to-top.show {
+    opacity: 1; /* Make visible */
+    visibility: visible; /* Make visible */
+    transform: scale(1); /* Reset scale */
+}
+
+.back-to-top:hover {
+    background-color: var(--themeColor); /* Darker background on hover */
+}

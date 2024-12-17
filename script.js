@@ -57,6 +57,25 @@ resumeBtns.forEach((btn, idx) => {
     });
 });
 
+// Select all read-more buttons
+const readMoreBtns = document.querySelectorAll('.read-more-btn');
+
+readMoreBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        // Find the related read-more-text for the current button
+        const text = btn.previousElementSibling.querySelector('.read-more-text');
+
+        // Toggle visibility of the specific text
+        if (text.style.display === 'none' || text.style.display === '') {
+            text.style.display = 'inline';
+            btn.textContent = 'Read Less';
+        } else {
+            text.style.display = 'none';
+            btn.textContent = 'Read More...';
+        }
+    });
+});
+
 //for portfolio carousel
 const arrowRight = document.querySelector('.portfolio-box .navigation .arrow-right');
 const arrowLeft = document.querySelector('.portfolio-box .navigation .arrow-left');
@@ -99,4 +118,16 @@ arrowLeft.addEventListener('click', () => {
     }
 
    activePortfolio();
+});
+
+// Select the back-to-top button
+const backToTopBtn = document.querySelector('.back-to-top');
+
+// Show or hide the button based on scroll position
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show'); // Show button
+    } else {
+        backToTopBtn.classList.remove('show'); // Hide button
+    }
 });
