@@ -1002,10 +1002,8 @@ main {
 
 .portfolio-box .navigation {
     display: flex;
-    text-align: right;
     margin-top: -3rem;
     gap: 5px;
-    align-items: center;
 }
 
 .portfolio-box .navigation button {
@@ -1042,7 +1040,7 @@ main {
     align-items: center;
     width: 50%;
     font-size: 18px;
-    margin-left: 50%;
+    margin-left: 40%;
     padding: 2px 0 2px 0;
     height: 35px;
     background-color: var(--whiteColor);

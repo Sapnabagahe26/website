@@ -60,18 +60,18 @@ resumeBtns.forEach((btn, idx) => {
     });
 });
 
-eduBtn.forEach((btn, idx) => {
-    btn.addEventListener('click', () => {
-        const resumeDetails = document.querySelectorAll('.resume-list .resume-btn');
+// eduBtn.forEach((btn, idx) => {
+//     btn.addEventListener('click', () => {
+//         const resumeDetails = document.querySelectorAll('.resume-list .resume-btn');
         
-        btn.classList.add('active');
+//         btn.classList.add('active');
 
-        resumeDetails.forEach(detail => {
-            detail.classList.remove('active');
-        });
-        resumeDetails[idx].classList.add('active');
-    });
-});
+//         resumeDetails.forEach(detail => {
+//             detail.classList.remove('active');
+//         });
+//         resumeDetails[idx].classList.add('active');
+//     });
+// });
 
 // Select all read-more buttons
 const readMoreBtns = document.querySelectorAll('.read-more-btn');
@@ -156,14 +156,38 @@ arrowLeft.addEventListener('click', () => {
    activePortfolio();
 });
 
-// Select the back-to-top button
-const backToTopBtn = document.querySelector('.back-to-top');
-
-// Show or hide the button based on scroll position
-window.addEventListener('scroll', () => {
-    if (window.scrollY > 300) {
-        backToTopBtn.classList.add('show'); // Show button
-    } else {
-        backToTopBtn.classList.remove('show'); // Hide button
+arrowRight.addEventListener('click', () => {
+    if (index < 0) {
+        arrowLeft.classList.add('hover');
     }
+    else {
+        index++;
+        arrowLeft.classList.remove('disabled');
+    }
+
+   activePortfolio();
 });
+
+// Wait for the DOM to load
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopBtn = document.querySelector('.back-to-top');
+
+    // Show or hide the button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backToTopBtn.classList.add('show');
+        } else {
+            backToTopBtn.classList.remove('show');
+        }
+    });
+
+    // Scroll to the top when the button is clicked
+    backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault(); // Prevent default anchor behavior
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Smooth scrolling
+        });
+    });
+});
+
