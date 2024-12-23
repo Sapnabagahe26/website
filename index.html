@@ -6,6 +6,7 @@
     <!-- CSS file-->
     <link rel="stylesheet" href="style.css">
     <title>SB Talks</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!--box icons-->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
@@ -32,7 +33,7 @@
             <li><a href="#home" class="active"><i class='bx bxs-home'></i>Home</a></li>
             <li><a href="#about"><i class='bx bxs-user'></i>About Me</a></li>
             <li><a href="#resume"><i class="bx bxs-file"></i>Resume</a></li>            
-            <li><a href="#portfolio"><i class='bx bxs-briefcase'></i>Portfolio</a></li>
+            <li><a href="#portfolio" id="nav-portfolio"><i class='bx bxs-briefcase'></i>Portfolio</a></li>
             <li><a href="#service"><i class='bx bxs-server'></i>Services</a></li>
             <li><a href="#contact"><i class='bx bxs-envelope'></i>Contact</a></li>
         </ul>
@@ -153,7 +154,7 @@
                                 <p class="year">Dec 2024 - Ongoing</p>
                                 <h3>Data Science Intern</h3>
                                 <p class="company">Yhills</p>
-                                <p>Analyzing and cleaning datasets (10M+ rows) using Python and SQL. <span class="read-more-text">Developing predictive models using machine learning algorithms, achieving a 20% improvement in forecast accuracy andextracting actionable insights.</span></p>
+                                <p><span class="read-more-text">Analyzing and cleaning datasets (10M+ rows) using Python and SQL. Developing predictive models using machine learning algorithms, achieving a 20% improvement in forecast accuracy andextracting actionable insights.</span></p>
                                 <span class="read-more-btn">Read More...</span>
                             </div>
 
@@ -161,7 +162,7 @@
                                 <p class="year">Dec 2024 - Present</p>
                                 <h3>Business Development Intern</h3>
                                 <p class="company">NoxAlgo</p>
-                                <p>Generated leads through market research and outreach, increasing client base by 15%. <span class="read-more-text">Engaged in cold calling and assisted in closing clients, to achieving revenue targets.</span></p>
+                                <p><span class="read-more-text">Generated leads through market research and outreach, increasing client base by 15%. Engaged in cold calling and assisted in closing clients, to achieving revenue targets.</span></p>
                                 <span class="read-more-btn">Read More...</span>
                             </div>
 
@@ -169,7 +170,7 @@
                                 <p class="year">Oct 2023 - Present</p>
                                 <h3>AI and Prompt Engineering Intern</h3>
                                 <p class="company">Vault of Codes</p>
-                                <p>Designed and fine-tuned prompts for LLMs, improving output accuracy by 15%. <span class="read-more-text">Conducted NLP tasks like summarization and sentiment analysis, enhancing model capabilities.</span></p>
+                                <p><span class="read-more-text">Designed and fine-tuned prompts for LLMs, improving output accuracy by 15%. Conducted NLP tasks like summarization and sentiment analysis, enhancing model capabilities.</span></p>
                                 <span class="read-more-btn">Read More...</span>
                             </div>
 
@@ -177,7 +178,7 @@
                                 <p class="year">Mar 2023 - Sep 2023</p>
                                 <h3>E-commerce and Analytics Coordinator</h3>
                                 <p class="company">Sadguru Sales</p>
-                                <p>Conducted sales and performance analysis, identifying trends that led to a 25% increase in customer engagement. <span class="read-more-text">Optimized product pricing strategies by monitoring competitor data</span></p>
+                                <p><span class="read-more-text">Conducted sales and performance analysis, identifying trends that led to a 25% increase in customer engagement. Optimized product pricing strategies by monitoring competitor data</span></p>
                                 <span class="read-more-btn">Read More...</span>
                             </div>
 
@@ -185,7 +186,7 @@
                                 <p class="year">Nov 2022 - Jul 2023</p>
                                 <h3>Independent Business Owner</h3>
                                 <p class="company">FLP, India</p>
-                                <p>Analyzed customer feedback to adapt business strategies, achieving a 10% growth in revenue <span class="read-more-text">Prepared reports of team performance after conducting regular meetings, led to better organisation and planning.</span></p>
+                                <p><span class="read-more-text">Analyzed customer feedback to adapt business strategies, achieving a 10% growth in revenue <span class="read-more-text">Prepared reports of team performance after conducting regular meetings, led to better organisation and planning.</span></p>
                                 <span class="read-more-btn">Read More...</span>
                             </div>
 
@@ -200,17 +201,41 @@
 
                             <div class="resume-item">
                                 <p class="year">2024 - 2026</p>
-                                <h3>Master of Business Administration</h3>
-                                <p class="company">LPU, Punjab</p>
-                                <p>MBA in Data Science and Business Analytics</p>
-                            </div>
+                                <h3>Current Education</h3>
+                                <p class="company">Lovely Professional University</p>
+                                <div class="edu-detail">
+                                    <p><span class="label">Degree</span> Master of Business Administration</p>
+                                    <p><span class="label">Specialisation</span> Data Science and Business Analytics</p>
+                                    <p><span class="label">Location</span> Jalandhar, Punjab, India</p>
+                                    <p><span class="label">CGPA</span> awaited</p>
+                                </div>
+                            </div>    
+                                <!--
+                                <p>Highlights: 
+                                    <span>
+                                    <ul>
+                                        <li>Relevant coursework: Machine Learning, Business Analytics, Big Data, and Business Strategy.</li>
+                                        <li>Projects: will be adding shortly</li>
+                                    </ul>
+                                    </span>
+                                </p>
+                                -->
+
+                            
 
                             <div class="resume-item">
                                 <p class="year">2020 -2023</p>
-                                <h3>Bachelor of Computer Application</h3>
-                                <p class="company">LPU, Punjab</p>
-                                <p>BCA in Full-stack Web Development</p>
+                                <h3>Undergraduate Education</h3>
+                                <p class="company">Lovely Professional University</p>
+                                <div class="edu-detail">
+                                    <p><span class="label">Degree</span>Bachelor of Computer Application</p>
+                                    <p><span class="label">Specialisation</span>Full-stack Web Development</p>
+                                    <p><span class="label">Location</span> Jalandhar, Punjab, India</p>
+                                    <p><span class="label">CGPA</span> 7.47</p>
+                                    
+                                </div>
                             </div>
+                            <button class="resume-btn active">Course and Certificates</button>
                         </div>
                     </div>
 
@@ -254,9 +279,6 @@
                                 <i class="bx bxl-github"></i>
                                 <span>GitHub</span>
                             </div>
-
-
-                            
                             <div class="resume-item">
                                 <i class="bx bx-bar-chart-alt-2"></i>
                                 <span>Statistics</span>
@@ -491,11 +513,15 @@
                             <div class="img-item">
                                 <img src="img/project/6.jpg" alt="">
                             </div>
+                            <div class="img-item">
+                                <p>Visit my portfolio or github for more projects</p>
+                            </div>
                         </div>
                     </div>
                     <div class="navigation">
                         <button class="arrow-left disabled"><i class="bx bx-chevron-left" title="Previous"></i></button>
                         <button class="arrow-right"><i class="bx bx-chevron-right" title="Next"></i></button>
+                        <button class="more"><i class='bx bxs-folder-plus' title="More Projects"></i>More</button>
                     </div>
                 </div>
             </div>
