@@ -60,6 +60,7 @@ resumeBtns.forEach((btn, idx) => {
     });
 });
 
+<<<<<<< HEAD
 // eduBtn.forEach((btn, idx) => {
 //     btn.addEventListener('click', () => {
 //         const resumeDetails = document.querySelectorAll('.resume-list .resume-btn');
@@ -72,6 +73,20 @@ resumeBtns.forEach((btn, idx) => {
 //         resumeDetails[idx].classList.add('active');
 //     });
 // });
+=======
+eduBtn.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+        const resumeDetails = document.querySelectorAll('.resume-list .resume-btn');
+        
+        btn.classList.add('active');
+
+        resumeDetails.forEach(detail => {
+            detail.classList.remove('active');
+        });
+        resumeDetails[idx].classList.add('active');
+    });
+});
+>>>>>>> ecd4428d4c68f81152b78bbaa19ad23445cfc596
 
 // Select all read-more buttons
 const readMoreBtns = document.querySelectorAll('.read-more-btn');
@@ -159,6 +174,27 @@ arrowLeft.addEventListener('click', () => {
 arrowRight.addEventListener('click', () => {
     if (index < 0) {
         arrowLeft.classList.add('hover');
+<<<<<<< HEAD
+=======
+    }
+    else {
+        index++;
+        arrowLeft.classList.remove('disabled');
+    }
+
+   activePortfolio();
+});
+
+// Select the back-to-top button
+const backToTopBtn = document.querySelector('.back-to-top');
+
+// Show or hide the button based on scroll position
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+        backToTopBtn.classList.add('show'); // Show button
+    } else {
+        backToTopBtn.classList.remove('show'); // Hide button
+>>>>>>> ecd4428d4c68f81152b78bbaa19ad23445cfc596
     }
     else {
         index++;

@@ -1002,8 +1002,15 @@ main {
 
 .portfolio-box .navigation {
     display: flex;
+<<<<<<< HEAD
     margin-top: -3rem;
     gap: 5px;
+=======
+    text-align: right;
+    margin-top: -3rem;
+    gap: 5px;
+    align-items: center;
+>>>>>>> ecd4428d4c68f81152b78bbaa19ad23445cfc596
 }
 
 .portfolio-box .navigation button {
@@ -1040,7 +1047,11 @@ main {
     align-items: center;
     width: 50%;
     font-size: 18px;
+<<<<<<< HEAD
     margin-left: 40%;
+=======
+    margin-left: 50%;
+>>>>>>> ecd4428d4c68f81152b78bbaa19ad23445cfc596
     padding: 2px 0 2px 0;
     height: 35px;
     background-color: var(--whiteColor);
