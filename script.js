@@ -1,43 +1,46 @@
 // Header toggle
+let MenuBtn = document.getElementById('MenuBtn');
 
-let MenuBtn = document.getElementById('MenuBtn')
-
-MenuBtn.addEventListener('click', function(e) {
+MenuBtn.addEventListener('click', function (e) {
     document.querySelector('body').classList.toggle('mobile-nav-active');
-    this.classList.toggle('fa-xmark')
-})
-
+    this.classList.toggle('fa-xmark');
+});
 
 // Typing Effect
-
 let typed = new Typed('.auto-input', {
     strings: ['Front-End Developer!', 'Data Scientist!', 'Business Analyst!', 'Creative Writer!'],
     typespeed: 100,
     backspeed: 100,
     backDelay: 2000,
     loop: true,
-})
+});
 
 // Active Link State on Scroll
-
-// Get All Links 
-let navLinks = document.querySelectorAll('nav ul li a')
-// Get All Sections
-let sections = document.querySelectorAll('section')
+let navLinks = document.querySelectorAll('nav ul li a');
+let sections = document.querySelectorAll('section');
 
 window.addEventListener('scroll', function () {
-    const scrollPos = window.scrollY + 20
+    const scrollPos = window.scrollY + 20;
     sections.forEach(section => {
-        if(scrollPos > section.offsetTop && scrollPos < (section.offsetTop + section.offsetHeight)) {
+        if (scrollPos > section.offsetTop && scrollPos < (section.offsetTop + section.offsetHeight)) {
             navLinks.forEach(link => {
                 link.classList.remove('active');
-                if(section.getAttribute('id') === link.getAttribute('href').substring(1)) {
-                    link.classList.add('active')
+                if (section.getAttribute('id') === link.getAttribute('href').substring(1)) {
+                    link.classList.add('active');
                 }
             });
         }
-    })
+    });
 });
+
+// Close mobile navigation when a nav link is clicked
+navLinks.forEach(link => {
+    link.addEventListener('click', function () {
+        document.querySelector('body').classList.remove('mobile-nav-active'); // Remove class
+        MenuBtn.classList.remove('fa-xmark'); // Reset MenuBtn icon
+    });
+});
+
 
 //for resume buttons
 const resumeBtns = document.querySelectorAll('.resume-btn');
@@ -57,24 +60,57 @@ resumeBtns.forEach((btn, idx) => {
     });
 });
 
+eduBtn.forEach((btn, idx) => {
+    btn.addEventListener('click', () => {
+        const resumeDetails = document.querySelectorAll('.resume-list .resume-btn');
+        
+        btn.classList.add('active');
+
+        resumeDetails.forEach(detail => {
+            detail.classList.remove('active');
+        });
+        resumeDetails[idx].classList.add('active');
+    });
+});
+
 // Select all read-more buttons
 const readMoreBtns = document.querySelectorAll('.read-more-btn');
 
 readMoreBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-        // Find the related read-more-text for the current button
-        const text = btn.previousElementSibling.querySelector('.read-more-text');
+        // Find the parent .resume-item of the clicked button
+        const currentResumeItem = btn.closest('.resume-item');
+        const currentText = btn.previousElementSibling.querySelector('.read-more-text');
 
-        // Toggle visibility of the specific text
-        if (text.style.display === 'none' || text.style.display === '') {
-            text.style.display = 'inline';
+        // Collapse all other .resume-item elements
+        document.querySelectorAll('.resume-item').forEach((resumeItem) => {
+            const readMoreText = resumeItem.querySelector('.read-more-text');
+            const readMoreButton = resumeItem.querySelector('.read-more-btn');
+
+            if (resumeItem !== currentResumeItem) {
+                // Collapse any other expanded items
+                resumeItem.classList.remove('expanded');
+                if (readMoreText) readMoreText.style.display = 'none';
+                if (readMoreButton) readMoreButton.textContent = 'Read More...';
+            }
+        });
+
+        // Toggle the current .resume-item
+        if (!currentResumeItem.classList.contains('expanded')) {
+            // Expand the clicked item
+            currentResumeItem.classList.add('expanded');
+            currentText.style.display = 'inline';
             btn.textContent = 'Read Less';
         } else {
-            text.style.display = 'none';
+            // Collapse the clicked item
+            currentResumeItem.classList.remove('expanded');
+            currentText.style.display = 'none';
             btn.textContent = 'Read More...';
         }
     });
 });
+
+
 
 //for portfolio carousel
 const arrowRight = document.querySelector('.portfolio-box .navigation .arrow-right');
