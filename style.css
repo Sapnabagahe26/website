@@ -320,7 +320,7 @@ main {
     margin-top: 20px;
     display: block;
     width: 100%; /* Image takes up full width of its container */
-    max-width: 150px; /* Limits the maximum width */
+    max-width: 160px; /* Limits the maximum width */
     height: auto; /* Maintains the aspect ratio */
 }
 .about-btn {
@@ -354,7 +354,7 @@ main {
 .cv .about-btn {
     margin: 0;
     padding: 5px 20px;
-    width: 30%;
+    width: 70%;
 }
 
 .about-col .info-col {
@@ -458,8 +458,14 @@ main {
         padding: 30px 10px;
     }
     .about-col .img-col img {
-        width: 80%;
-        height: 80%;
+        width: 100%;
+    }
+    .about-btn {
+        width: 100%;
+    }
+    .cv .about-btn {
+        margin-left: 15px;
+        width: 50%;
     }
 }
 
@@ -1050,14 +1056,6 @@ main {
     background: var(--iconBGColor);
 }
 
-.more.hover {
-    /* Define your hover style here */
-    cursor: pointer; /* example style */
-    opacity: 0.7; /* example style */
-    transition: opacity 0.3s;
-    background: var(--iconBGColor)
-}
-
 
 /* For large desktops */
 @media only screen and (min-width: 1025px) {
@@ -1083,6 +1081,10 @@ main {
         font-size: 25px;
         font-weight: 400;
         margin: .2rem 0 .5rem;
+    }
+    .live-github {
+        display: flex;
+        justify-content: flex-end; /* Aligns the items (links) to the right */
     }
     .portfolio-box .tech {
         margin: 1rem 0;

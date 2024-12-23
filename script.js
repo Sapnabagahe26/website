@@ -73,44 +73,65 @@ resumeBtns.forEach((btn, idx) => {
 //     });
 // });
 
-// Select all read-more buttons
+// Select all read-more button
+
+// Select all read-more buttons globally
+// Select all read-more buttons globally
 const readMoreBtns = document.querySelectorAll('.read-more-btn');
 
+// Add click event listener to each .read-more-btn
 readMoreBtns.forEach((btn) => {
     btn.addEventListener('click', () => {
-        // Find the parent .resume-item of the clicked button
+        // Find the closest .resume-item (for resume sections) or .portfolio-detail (for portfolio items)
         const currentResumeItem = btn.closest('.resume-item');
-        const currentText = btn.previousElementSibling.querySelector('.read-more-text');
+        const currentPortfolioDetail = btn.closest('.portfolio-detail');
+        
+        // If it's a resume item, handle expanding/collapsing behavior
+        if (currentResumeItem) {
+            const currentText = btn.previousElementSibling.querySelector('.read-more-text');
 
-        // Collapse all other .resume-item elements
-        document.querySelectorAll('.resume-item').forEach((resumeItem) => {
-            const readMoreText = resumeItem.querySelector('.read-more-text');
-            const readMoreButton = resumeItem.querySelector('.read-more-btn');
+            // Collapse all other .resume-item elements
+            document.querySelectorAll('.resume-item').forEach((resumeItem) => {
+                const readMoreText = resumeItem.querySelector('.read-more-text');
+                const readMoreButton = resumeItem.querySelector('.read-more-btn');
 
-            if (resumeItem !== currentResumeItem) {
-                // Collapse any other expanded items
-                resumeItem.classList.remove('expanded');
-                if (readMoreText) readMoreText.style.display = 'none';
-                if (readMoreButton) readMoreButton.textContent = 'Read More...';
+                if (resumeItem !== currentResumeItem) {
+                    // Collapse any other expanded items
+                    resumeItem.classList.remove('expanded');
+                    if (readMoreText) readMoreText.style.display = 'none';
+                    if (readMoreButton) readMoreButton.textContent = 'Read More...';
+                }
+            });
+
+            // Toggle the current .resume-item
+            if (!currentResumeItem.classList.contains('expanded')) {
+                // Expand the clicked item
+                currentResumeItem.classList.add('expanded');
+                currentText.style.display = 'inline';
+                btn.textContent = 'Read Less';
+            } else {
+                // Collapse the clicked item
+                currentResumeItem.classList.remove('expanded');
+                currentText.style.display = 'none';
+                btn.textContent = 'Read More...';
             }
-        });
+        }
 
-        // Toggle the current .resume-item
-        if (!currentResumeItem.classList.contains('expanded')) {
-            // Expand the clicked item
-            currentResumeItem.classList.add('expanded');
-            currentText.style.display = 'inline';
-            btn.textContent = 'Read Less';
-        } else {
-            // Collapse the clicked item
-            currentResumeItem.classList.remove('expanded');
-            currentText.style.display = 'none';
-            btn.textContent = 'Read More...';
+        // If it's a portfolio item, only toggle the .read-more-text visibility
+        if (currentPortfolioDetail) {
+            const currentText = btn.previousElementSibling.querySelector('.read-more-text');
+
+            // Toggle the visibility of .read-more-text in the clicked .portfolio-detail
+            if (currentText.style.display === 'inline') {
+                currentText.style.display = 'none';
+                btn.textContent = 'Read More...';
+            } else {
+                currentText.style.display = 'inline';
+                btn.textContent = 'Read Less';
+            }
         }
     });
 });
-
-
 
 // Portfolio Carousel Logic
 const arrowRight = document.querySelector('.portfolio-box .navigation .arrow-right');
