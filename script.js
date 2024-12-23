@@ -112,7 +112,7 @@ readMoreBtns.forEach((btn) => {
 
 
 
-//for portfolio carousel
+// Portfolio Carousel Logic
 const arrowRight = document.querySelector('.portfolio-box .navigation .arrow-right');
 const arrowLeft = document.querySelector('.portfolio-box .navigation .arrow-left');
 
@@ -130,43 +130,32 @@ const activePortfolio = () => {
     portfolioDetails[index].classList.add('active');
 }
 
+// Right Arrow Event Listener
 arrowRight.addEventListener('click', () => {
-     if (index < 4) {
-         index++;
-         arrowLeft.classList.remove('disabled');
-     }
-     else {
-         index = 5;
-         arrowRight.classList.add('disabled');
-     }
+    if (index < 4) {  // Only increment index if it's less than 4
+        index++;  // Increment index
+        arrowLeft.classList.remove('disabled');  // Enable the left arrow if not on the first item
+    }
+    if (index === 4) {  // Disable right arrow when the index reaches the last item (index 4)
+        arrowRight.classList.add('disabled');
+    }
 
-    activePortfolio();
+    activePortfolio();  // Update the carousel after changing the index
 });
 
+// Left Arrow Event Listener
 arrowLeft.addEventListener('click', () => {
-    if (index > 1) {
-        index--;
-        arrowRight.classList.remove('disabled');
+    if (index > 0) {  // Only decrement index if it's greater than 0
+        index--;  // Decrement index
+        arrowRight.classList.remove('disabled');  // Enable the right arrow if not on the last item
     }
-    else {
-        index = 0;
+    if (index === 0) {  // Disable left arrow when the index is at 0 (the first item)
         arrowLeft.classList.add('disabled');
     }
 
-   activePortfolio();
+    activePortfolio();  // Update the carousel after changing the index
 });
 
-arrowRight.addEventListener('click', () => {
-    if (index < 0) {
-        arrowLeft.classList.add('hover');
-    }
-    else {
-        index++;
-        arrowLeft.classList.remove('disabled');
-    }
-
-   activePortfolio();
-});
 
 // Wait for the DOM to load
 document.addEventListener('DOMContentLoaded', () => {
