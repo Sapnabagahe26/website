@@ -709,6 +709,7 @@ main {
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
+    margin-bottom: 20px;
 }
 
 .resume-list .resume-btn a i {
@@ -791,7 +792,7 @@ main {
 .resume-detail.certificates .link {
     display: flex;
     justify-content: flex-end;
-    font-size: 12px;
+    font-size: 10px;
 }
 
 .resume-detail.certificates .link a{
