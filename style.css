@@ -10,6 +10,14 @@
     scroll-behavior: smooth;
 }
 
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    overflow-y: auto; /* Ensure only one vertical scrollbar */
+    height: 100%; /* Ensure body takes full viewport height */
+}
+
 /* Global Variable */
 :root{
     --sideBGColor: #040c15;
@@ -38,7 +46,7 @@ header {
 }
 header .profile {
     text-align: center;
-    margin: 1px 0;
+    margin: 10px 0;
 }
 header .profile img {
     width: 150px;
@@ -58,7 +66,7 @@ header .profile .social-icons a {
     text-align: center;
     line-height: 37px;
     background: var(--iconBGColor);
-    color: white;
+    color: var(--whiteColor);
     font-size: 18px;
     margin: 1.5px;
     transition: 0.4s;
@@ -69,7 +77,8 @@ header .profile .social-icons a:hover {
 
 /* NavBar */
 header nav {
-    margin-top: 30px; margin-bottom: 100px;
+    margin-top: 30px; 
+    margin-bottom: 100px;
 }
 header nav ul li {
     list-style: none;
@@ -167,7 +176,7 @@ header .footer p a {
     left: 0;
 }
 .mobile-nav-active header .footer {
-        left: 0;
+    left: 0;
 }
 
 /* Header END */
@@ -246,7 +255,6 @@ main {
         display: none;
     }
     #home .home-row p {
-        color: whitesmoke;
         font-size: 20px;
         font-weight: 400;
     }
@@ -351,11 +359,26 @@ main {
     color: var(--iconBGColor);
 }
 
-.cv .about-btn {
+/* .cv .about-btn {
     margin: 0;
     padding: 5px 20px;
-    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+    width: 50%;
+} */
+
+.cv {
+    display: flex; /* Ensures flexbox behavior */
+    justify-content: flex-end; /* Aligns all child elements to the right */
+    width: 70%; /* Ensures the container spans the full width */
 }
+
+/* .cv .about-btn {
+    padding: 5px 20px;
+    display: inline-flex; /* Keeps the button inline-flex 
+    align-items: center; /* Vertically centers the icon and text
+    justify-content: center; /* Centers content within the button itself 
+} */
 
 .about-col .info-col {
     flex-basis: 70%;
@@ -447,8 +470,19 @@ main {
         font-weight: 400;
         font-size: 13px;
     }
+
+    .cv {
+        display: flex; /* Ensures flexbox behavior */
+        justify-content: flex-start; /* Aligns all child elements to the left */
+        width: 180%; /* Ensures the container spans the full width */
+    }
+    
     .cv .about-btn {
-        width: 100%;
+        margin: 0;
+        padding: 5px 20px;
+        display: inline-flex; /* Keeps the button inline-flex */
+        align-items: center; /* Vertically centers the icon and text */
+        justify-content: center; /* Centers content within the button itself */
     }
 }
 
@@ -514,7 +548,7 @@ main {
 }
 
 .resume-box .desc {
-    margin: .5rem 0 3rem;
+    margin: .5rem 0 2rem;
 }
 
 .resume-box .resume-btn {
@@ -670,6 +704,17 @@ main {
     width: 200%;
 }
 
+.resume-list .resume-btn a {
+    color: var(--themeColor);
+    font-size: 14px;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.resume-list .resume-btn a i {
+    font-size: 30px;
+}
+
 /* .resume-detail.education .resume-list::-webkit-scrollbar {
     width: .7rem;
 }
@@ -728,14 +773,35 @@ main {
 }
 
 .resume-detail.certificates .resume-list {
-    grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
     overflow: auto;
 }
 
-.resume-detail.certificates img {
-    height: 70%;
-    width: 100%;
+.resume-detail.certificates .resume-list .resume-item{
+    height: calc((18rem - 2rem) / 2);
+    padding: 20px;
+    line-height: 1.4;
 }
+
+.resume-detail.certificates .resume-list .resume-item span {
+    color: grey;
+    font-size: 12px;
+}
+
+.resume-detail.certificates .link {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 12px;
+}
+
+.resume-detail.certificates .link a{
+    color: var(--themeColor);
+}
+
+.resume-detail.certificates .link a i {
+    font-size: 18px;
+}
+
 
 /* Mobile View */
 @media only screen and (max-width: 670px) {
@@ -747,6 +813,7 @@ main {
     }
     .resume-box .resume-btn {
         width: 80%;
+        margin-left: 30px;
         height: 2rem;
     }
     .resume-detail.education .resume-list {
@@ -812,8 +879,9 @@ main {
 #fact .fact-row {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-gap: 30px;
-    margin-top: 50px;
+    grid-gap: 25px;
+    margin-top: 20px;
+    justify-items: center;
 }
 #fact .fact-row .fact-box i {
     color: var(--themeColor);
@@ -929,8 +997,9 @@ main {
 
 .portfolio-box .tech span {
     color: var(--iconBGColor);
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
+    font-style: italic;
 }
 
 .portfolio-box .live-github a {
@@ -958,7 +1027,7 @@ main {
 
 .portfolio-box .live-github a span {
     position: absolute;
-    top: 20%;
+    top: 100%;
     left: 60%;
     transform: translateX(-60%) scale(1);
     font-size: 12px;
@@ -973,7 +1042,7 @@ main {
 }
 
 .portfolio-box .live-github a:hover span {
-    top: -60%;
+    top: 120%;
     opacity: 1;
     transform: translateX(-50%) scale(1);
 }
@@ -1094,12 +1163,16 @@ main {
         margin-top: -9rem;
         margin-right: 2rem;
     }
+    .portfolio-box .navigation .more {
+        margin-left: 60%;
+        font-size: 14px;
+    }
 }
 /* Portfolio Setion END */
 
 /* Service Setion START */
 #service {
-    padding: 30px 10px;
+    padding: 30px 20px;
     background-color: var(--lightGreyColor);
     padding-bottom: 120px;
 }
@@ -1181,7 +1254,7 @@ main {
 
 /* Contact Section START */
 #contact {
-    padding: 30px 10px;
+    padding: 30px 20px;
     background-color: var(--bgColor);
 }
 #contact .contact-row {
@@ -1231,7 +1304,7 @@ main {
 }
 #contact .contact-row .contact-left .map {
     width: 100%;
-    height: 100%;
+    height: 50%;
 }
 #contact .contact-row .contact-right {
     flex-basis: 60%;
@@ -1314,8 +1387,8 @@ main {
 /* Back-to-Top Button */
 .back-to-top {
     position: fixed;
-    bottom: 20px; /* Distance from the bottom of the viewport */
-    right: 20px; /* Distance from the right of the viewport */
+    bottom: 10px; /* Distance from the bottom of the viewport */
+    right: 25px; /* Distance from the right of the viewport */
     background-color: var(--iconBGColor); /* Button background color */
     color: var(--bgColor); /* Icon color */
     font-size: 25px; /* Icon size */
@@ -1328,17 +1401,21 @@ main {
     box-shadow: 0 5px 10px var(--iconBGColor); /* Subtle shadow */
     cursor: pointer; /* Pointer cursor on hover */
     text-decoration: none; /* Remove underline */
-    opacity: 0; /* Hidden initially */
-    visibility: hidden; /* Hidden initially */
+    opacity: 1; 
+    visibility: visible; 
     transition: opacity 0.3s, visibility 0.3s, transform 0.3s; /* Smooth transitions */
 }
 
-.back-to-top.show {
-    opacity: 1; /* Make visible */
-    visibility: visible; /* Make visible */
-    transform: scale(1); /* Reset scale */
+.back-to-top:hover {
+    color: var(--whiteColor);
+    background-color: var(--themeColor);
 }
 
-.back-to-top:hover {
-    background-color: var(--themeColor); /* Darker background on hover */
+@media only screen and (max-width: 500px) {
+    .back-to-top {
+        bottom: 10px; /* Distance from the bottom of the viewport*/ 
+        right: 15px; /* Distance from the right of the viewport */
+        z-index: 1000;
+        position: fixed;
+    }
 }

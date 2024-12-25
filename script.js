@@ -153,11 +153,11 @@ const activePortfolio = () => {
 
 // Right Arrow Event Listener
 arrowRight.addEventListener('click', () => {
-    if (index < 4) {  // Only increment index if it's less than 4
+    if (index < 5) {  // Only increment index if it's less than 4
         index++;  // Increment index
         arrowLeft.classList.remove('disabled');  // Enable the left arrow if not on the first item
     }
-    if (index === 4) {  // Disable right arrow when the index reaches the last item (index 4)
+    if (index === 5) {  // Disable right arrow when the index reaches the last item (index 4)
         arrowRight.classList.add('disabled');
     }
 
@@ -178,25 +178,19 @@ arrowLeft.addEventListener('click', () => {
 });
 
 
-// Wait for the DOM to load
-document.addEventListener('DOMContentLoaded', () => {
-    const backToTopBtn = document.querySelector('.back-to-top');
+document.addEventListener('DOMContentLoaded', function () {
+    const backToTopButton = document.querySelector('.back-to-top'); // Select the Back-to-Top button
 
-    // Show or hide the button based on scroll position
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopBtn.classList.add('show');
-        } else {
-            backToTopBtn.classList.remove('show');
-        }
-    });
+    if (!backToTopButton) {
+        console.error('Back-to-Top Button not found!');
+        return;
+    }
 
-    // Scroll to the top when the button is clicked
-    backToTopBtn.addEventListener('click', (e) => {
+    // Add click event listener to redirect to the home section
+    backToTopButton.addEventListener('click', (e) => {
         e.preventDefault(); // Prevent default anchor behavior
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth' // Smooth scrolling
+        document.querySelector('#home').scrollIntoView({
+            behavior: 'smooth', // Smooth scrolling
         });
     });
 });
