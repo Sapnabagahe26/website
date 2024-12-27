@@ -702,14 +702,16 @@ main {
 
 .resume-list .resume-btn {
     width: 200%;
+    background-color: var(--themeColor);
 }
 
 .resume-list .resume-btn a {
-    color: var(--themeColor);
+    color: var(--whiteColor);
     font-size: 14px;
     font-weight: 600;
     text-transform: uppercase;
     margin-bottom: 20px;
+    padding-bottom: 50px;
 }
 
 .resume-list .resume-btn a i {
