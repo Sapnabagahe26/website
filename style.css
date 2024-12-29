@@ -284,10 +284,13 @@ main {
 .read-more-btn {
     color: var(--themeColor);
     cursor: pointer;
-    font-size: 14px;
+    font-size: 12px;
     font-weight: 400;
     font-style: italic;
     text-decoration: underline;
+}
+.read-more-btn:hover {
+    color: blue;
 }
 
 
@@ -325,7 +328,9 @@ main {
     text-align: center;
 }
 .img-col img {
-    margin-top: 20px;
+    border: 4px solid var(--themeColor);
+    border-style: double;
+    margin-top: 25px;
     display: block;
     width: 100%; /* Image takes up full width of its container */
     max-width: 160px; /* Limits the maximum width */
@@ -349,12 +354,16 @@ main {
     transition: 0.4s;
 }
 .about-btn:hover {
+    transform: rotate(-360deg);
     background-color: var(--sideBGColor);
     color: var(--bgColor);
     justify-content: center;
     justify-items: center;
 } 
 .about-btn i {
+    display: inline;
+    justify-content: space-between;
+    margin-right: 5px;
     font-size: 20px;
     color: var(--iconBGColor);
 }
@@ -368,9 +377,11 @@ main {
 } */
 
 .cv {
-    display: flex; /* Ensures flexbox behavior */
-    justify-content: flex-end; /* Aligns all child elements to the right */
     width: 70%; /* Ensures the container spans the full width */
+}
+
+.cv .about-btn {
+    transform: none;
 }
 
 /* .cv .about-btn {
@@ -423,6 +434,13 @@ main {
 .about-col .info-col .icon-list-col .icon-list ul li span {
     color: var(--textColor);
     font-weight: 500;
+    font-size: 14px;
+}
+.about-col .info-col .icon-list-col .icon-list ul li span a {
+    color: var(--themeColor);
+}
+.about-col .info-col .icon-list-col .icon-list ul li span a:hover {
+    color: blue;
     font-size: 15px;
 }
 
@@ -525,7 +543,7 @@ main {
 /* resume section */
 
 #resume {
-    padding: 30px 20px 40px;
+    padding: 30px 20px 25px;
     background-color: var(--lightGreyColor);
 }
 
@@ -557,13 +575,15 @@ main {
     background: var(--iconBGColor);
     font-size: 1rem;
     color: var(--whiteColor);
-    font-weight: 400;
+    font-weight: 500;
     margin-bottom: .5rem;
     border-radius: .5rem;
     cursor: pointer;
 }
 
 .resume-box .resume-btn.active{
+    transform: rotate(-1.5deg);
+    box-shadow: 0 5px 20px var(--iconBGColor);
     background: var(--themeColor);
 }
 
@@ -664,18 +684,6 @@ main {
 .resume-detail.education .resume-list .resume-item {
     height: calc((32rem - 2rem) / 2);
 }
-
-/* .edu-detail p {
-    color: var(--themeColor);
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.edu-detail span {
-    color: var(--bgColor);
-    font-size: 12px;
-    font-weight: 400;
-} */
 
 .edu-detail {
     display: grid;
@@ -805,6 +813,10 @@ main {
     font-size: 18px;
 }
 
+.resume-detail.certificates .link a:hover {
+    color: blue;
+    font-size: 12px;
+}
 
 /* Mobile View */
 @media only screen and (max-width: 670px) {
@@ -947,7 +959,7 @@ main {
 
 /* Portfolio Section START */
 #portfolio {
-    padding: 30px 20px 50px;
+    padding: 30px 20px 45px;
     background-color: var(--bgColor);
 }
 
@@ -988,7 +1000,7 @@ main {
 }
 
 .portfolio-box .tech {
-    margin: 2.2rem 0;
+    margin: 5rem 0 1rem;
     color: var(--themeColor);
     border-bottom: .2rem solid var(--sideBGColor);
 }
@@ -1175,9 +1187,8 @@ main {
 
 /* Service Setion START */
 #service {
-    padding: 30px 20px;
+    padding: 30px 20px 60px;
     background-color: var(--lightGreyColor);
-    padding-bottom: 120px;
 }
 #service .service-row {
     margin-top: 60px;
@@ -1261,7 +1272,7 @@ main {
     background-color: var(--bgColor);
 }
 #contact .contact-row {
-    margin-top: 20px;
+    margin-top: 20px; 
     display: flex;
     gap: 20px;
     width: 100%;
@@ -1272,13 +1283,13 @@ main {
     background-color: var(--lightGreyColor);
     box-shadow: 0 0 20px rgba(0, 0, 0, 20%);
     border-radius: 4px;
-    padding: 20px;
+    padding: 10px;
 }
 #contact .contact-row .contact-left .icon-box {
     display: flex;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
-    margin: 20px 0;
+    margin: 20px;
 }
 #contact .contact-row .contact-left .icon-box .icon i {
     width: 50px;
@@ -1300,14 +1311,16 @@ main {
     color: var(--sideBGColor);
     font-weight: 600;
 }
-#contact .contact-row .contact-left .icon-box .info h4 + p {
-    color: var(--textColor);
+#contact .contact-row .contact-left .icon-box .info a {
+    color: var(--themeColor);
     font-size: 14px;
     font-weight: 500;
 }
+#contact .contact-row .contact-left .icon-box .info a:hover {
+    color: blue;
+}
 #contact .contact-row .contact-left .map {
     width: 100%;
-    height: 50%;
 }
 #contact .contact-row .contact-right {
     flex-basis: 60%;
@@ -1346,6 +1359,11 @@ main {
     font-weight: 600;
     cursor: pointer;
 }
+#contact .contact-row .contact-right form input[type=submit]:hover {
+    background-color: var(--sideBGColor);
+    transform: rotate(-5deg);
+}
+
 @media only screen and (max-width: 800px) {
     #contact {
         padding: 50px;

@@ -153,11 +153,11 @@ const activePortfolio = () => {
 
 // Right Arrow Event Listener
 arrowRight.addEventListener('click', () => {
-    if (index < 5) {  // Only increment index if it's less than 4
+    if (index < 6) {  // Only increment index if it's less than 4
         index++;  // Increment index
         arrowLeft.classList.remove('disabled');  // Enable the left arrow if not on the first item
     }
-    if (index === 5) {  // Disable right arrow when the index reaches the last item (index 4)
+    if (index === 6) {  // Disable right arrow when the index reaches the last item (index 4)
         arrowRight.classList.add('disabled');
     }
 
